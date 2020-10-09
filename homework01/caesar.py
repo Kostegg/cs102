@@ -16,6 +16,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     ciphertext = ""
     for c in plaintext:
         if c.isalpha():
+<<<<<<< HEAD
             if "a" <= c <= "z":
                 ciphertext += chr(ord("a") + (ord(c) - ord("a") + shift) % 26)
                 """
@@ -27,6 +28,12 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
                """
             else:
                 ciphertext += chr(ord("A") + (ord(c) - ord("A") + shift) % 26)
+=======
+            if chr(ord(c) + shift).isalpha():
+                ciphertext += chr(ord(c) + shift)
+            else:
+                ciphertext += chr(ord(c) + shift - 26)
+>>>>>>> 374337a... Реализована шифровка и расшифровка
         else:
             ciphertext += c
     return ciphertext
@@ -47,10 +54,17 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     plaintext = ""
     for c in ciphertext:
         if c.isalpha():
+<<<<<<< HEAD
             if "a" <= c <= "z":
                 plaintext += chr(ord("a") + (ord(c) - ord("a") + 26 - shift) % 26)
             else:
                 plaintext += chr(ord("A") + (ord(c) - ord("A") + 26 - shift) % 26)
+=======
+            if chr(ord(c) + - shift).isalpha():
+                plaintext += chr(ord(c) - shift)
+            else:
+                plaintext += chr(ord(c) - shift + 26)
+>>>>>>> 374337a... Реализована шифровка и расшифровка
         else:
             plaintext += c
     return plaintext
