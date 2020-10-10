@@ -2,6 +2,7 @@ import typing as tp
 
 
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
+<<<<<<< HEAD
     """
     Encrypts plaintext using a Caesar cipher.
     >>> encrypt_caesar("PYTHON")
@@ -13,6 +14,8 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     >>> encrypt_caesar("")
     ''
     """
+=======
+>>>>>>> 49424cf... Убран лишний код и переименована функция взломщика обратно в caesar_breaker
     ciphertext = ""
     for c in plaintext:
         if c.isalpha():
@@ -40,6 +43,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
 
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
+<<<<<<< HEAD
     """
     Decrypts a ciphertext using a Caesar cipher.
     >>> decrypt_caesar("SBWKRQ")
@@ -51,6 +55,8 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     >>> decrypt_caesar("")
     ''
     """
+=======
+>>>>>>> 49424cf... Убран лишний код и переименована функция взломщика обратно в caesar_breaker
     plaintext = ""
     for c in ciphertext:
         if c.isalpha():
@@ -75,6 +81,7 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
 
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
+<<<<<<< HEAD
     """
 <<<<<<< HEAD
 =======
@@ -86,6 +93,8 @@ def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
     >>> caesar_breaker_brute_force("sbwkrq", d)
     3
     """
+=======
+>>>>>>> 49424cf... Убран лишний код и переименована функция взломщика обратно в caesar_breaker
     best_shift = 0
     plaintext = ""
     while best_shift < 26:
