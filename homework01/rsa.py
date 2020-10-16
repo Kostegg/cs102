@@ -49,6 +49,11 @@ def gcd(a: int, b: int) -> int:
         return a
 
     return gcd(b, a % b)
+<<<<<<< HEAD
+=======
+        
+    pass
+>>>>>>> 495c490... Реализована функция поиска НОД
 
 
 def multiplicative_inverse(e: int, phi: int) -> int:
