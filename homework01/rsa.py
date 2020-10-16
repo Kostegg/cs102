@@ -35,7 +35,14 @@ def gcd(a: int, b: int) -> int:
     >>> gcd(3, 7)
     1
     """
-    # PUT YOUR CODE HERE
+    if a < b:
+        gcd(b, a)
+
+    if b == 0:
+        return a
+
+    return gcd(b, a % b)
+        
     pass
 
 
