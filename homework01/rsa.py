@@ -18,11 +18,19 @@ def is_prime(n: int) -> bool:
         return False
 
     if n > 1:
+<<<<<<< HEAD
         for i in range(2, n // 2 + 1):
+=======
+        for i in range (2, n // 2 + 1):
+>>>>>>> a757f48... Реализована функция is_prime(n)
             if (n % i) == 0:
                 return False
 
     return True
+<<<<<<< HEAD
+=======
+    pass
+>>>>>>> a757f48... Реализована функция is_prime(n)
 
 
 def gcd(a: int, b: int) -> int:

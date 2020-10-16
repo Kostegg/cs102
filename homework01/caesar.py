@@ -3,6 +3,9 @@ import typing as tp
 
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a757f48... Реализована функция is_prime(n)
     """
     Encrypts plaintext using a Caesar cipher.
     >>> encrypt_caesar("PYTHON")
@@ -14,6 +17,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     >>> encrypt_caesar("")
     ''
     """
+<<<<<<< HEAD
 =======
 >>>>>>> 49424cf... Убран лишний код и переименована функция взломщика обратно в caesar_breaker
     ciphertext = ""
@@ -23,12 +27,21 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
             if "a" <= c <= "z":
                 ciphertext += chr(ord("a") + (ord(c) - ord("a") + shift) % 26)
                 """
+=======
+    ciphertext = ""
+    for c in plaintext:
+        if c.isalpha():
+            if 'a' <= c <= 'z':
+               ciphertext += chr(ord('a') + (ord(c) - ord('a') + shift) % 26)
+               """
+>>>>>>> a757f48... Реализована функция is_prime(n)
                     ord(c) - ord('a') - номер буквы в алфавите
                     + shift - сдвигаем
                     %26 - берем по модулю размера алфавита 
                      (ord(c) - ord('a') + shift) % 26 - номер итогового символа
 
                """
+<<<<<<< HEAD
             else:
                 ciphertext += chr(ord("A") + (ord(c) - ord("A") + shift) % 26)
 =======
@@ -37,6 +50,10 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
             else:
                 ciphertext += chr(ord(c) + shift - 26)
 >>>>>>> 374337a... Реализована шифровка и расшифровка
+=======
+            else:
+               ciphertext += chr(ord('A') + (ord(c) - ord('A') + shift) % 26)
+>>>>>>> a757f48... Реализована функция is_prime(n)
         else:
             ciphertext += c
     return ciphertext
@@ -44,6 +61,9 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a757f48... Реализована функция is_prime(n)
     """
     Decrypts a ciphertext using a Caesar cipher.
     >>> decrypt_caesar("SBWKRQ")
@@ -55,6 +75,7 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     >>> decrypt_caesar("")
     ''
     """
+<<<<<<< HEAD
 =======
 >>>>>>> 49424cf... Убран лишний код и переименована функция взломщика обратно в caesar_breaker
     plaintext = ""
@@ -75,6 +96,15 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
             else:
                 plaintext += chr(ord(c) - shift + 26)
 >>>>>>> 374337a... Реализована шифровка и расшифровка
+=======
+    plaintext = ""
+    for c in ciphertext:
+        if c.isalpha():            
+            if 'a' <= c <= 'z':
+                plaintext += chr(ord('a') + (ord(c) - ord('a') + 26 - shift) % 26)
+            else:
+                plaintext += chr(ord('A') + (ord(c) - ord('A') + 26 - shift) % 26)
+>>>>>>> a757f48... Реализована функция is_prime(n)
         else:
             plaintext += c
     return plaintext
@@ -82,19 +112,26 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
 <<<<<<< HEAD
+<<<<<<< HEAD
     """
 <<<<<<< HEAD
 =======
     Brute force breaking a Caesar cipher.
 >>>>>>> 2dd9b35... Реализована функция caesar_breaker_brute_force
+=======
+    """
+>>>>>>> a757f48... Реализована функция is_prime(n)
     >>> d = {"python", "java", "ruby"}
     >>> caesar_breaker_brute_force("python", d)
     0
     >>> caesar_breaker_brute_force("sbwkrq", d)
     3
     """
+<<<<<<< HEAD
 =======
 >>>>>>> 49424cf... Убран лишний код и переименована функция взломщика обратно в caesar_breaker
+=======
+>>>>>>> a757f48... Реализована функция is_prime(n)
     best_shift = 0
     plaintext = ""
     while best_shift < 26:
