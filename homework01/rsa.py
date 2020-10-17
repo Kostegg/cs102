@@ -19,10 +19,14 @@ def is_prime(n: int) -> bool:
 
     if n > 1:
 <<<<<<< HEAD
+<<<<<<< HEAD
         for i in range(2, n // 2 + 1):
 =======
         for i in range (2, n // 2 + 1):
 >>>>>>> a757f48... Реализована функция is_prime(n)
+=======
+        for i in range(2, n // 2 + 1):
+>>>>>>> bd5007c... Исправлено форматирование
             if (n % i) == 0:
                 return False
 
@@ -35,6 +39,7 @@ def is_prime(n: int) -> bool:
 
 =======
 >>>>>>> 147598e... Доделан RSA
+
 
 def gcd(a: int, b: int) -> int:
     """
@@ -62,6 +67,7 @@ def gcd(a: int, b: int) -> int:
 =======
 >>>>>>> 147598e... Доделан RSA
 
+
 def multiplicative_inverse(e: int, phi: int) -> int:
     """
     Euclid's extended algorithm for finding the multiplicative
@@ -71,14 +77,19 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     23
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 147598e... Доделан RSA
+=======
+
+>>>>>>> bd5007c... Исправлено форматирование
     def eea(e, b):
         if e % b == 0:
             return b, 0, 1
         else:
             if b > e:
+<<<<<<< HEAD
 <<<<<<< HEAD
                 e, b = b, e
             g, x, y = eea(b, e % b)
@@ -89,11 +100,18 @@ def multiplicative_inverse(e: int, phi: int) -> int:
 =======
                 e, b =b, e
             g, x, y =eea(b, e % b)
+=======
+                e, b = b, e
+            g, x, y = eea(b, e % b)
+>>>>>>> bd5007c... Исправлено форматирование
             return g, y, x - (e // b) * y
-    g, x, y = eea(e,phi)
-    return y % phi
 
+<<<<<<< HEAD
 >>>>>>> 147598e... Доделан RSA
+=======
+    g, x, y = eea(e, phi)
+    return y % phi
+>>>>>>> bd5007c... Исправлено форматирование
 
 
 def generate_keypair(
@@ -106,6 +124,7 @@ def generate_keypair(
 
     # n = pq
 <<<<<<< HEAD
+<<<<<<< HEAD
     n = p * q
 
     # phi = (p-1)(q-1)
@@ -116,6 +135,12 @@ def generate_keypair(
     # phi = (p-1)(q-1)
     phi = (p-1)*(q-1)
 >>>>>>> 147598e... Доделан RSA
+=======
+    n = p * q
+
+    # phi = (p-1)(q-1)
+    phi = (p - 1) * (q - 1)
+>>>>>>> bd5007c... Исправлено форматирование
 
     # Choose an integer e such that e and phi(n) are coprime
     e = random.randrange(1, phi)

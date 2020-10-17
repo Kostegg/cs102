@@ -31,10 +31,16 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     ciphertext = ""
     for c in plaintext:
         if c.isalpha():
+<<<<<<< HEAD
             if 'a' <= c <= 'z':
                ciphertext += chr(ord('a') + (ord(c) - ord('a') + shift) % 26)
                """
 >>>>>>> a757f48... Реализована функция is_prime(n)
+=======
+            if "a" <= c <= "z":
+                ciphertext += chr(ord("a") + (ord(c) - ord("a") + shift) % 26)
+                """
+>>>>>>> bd5007c... Исправлено форматирование
                     ord(c) - ord('a') - номер буквы в алфавите
                     + shift - сдвигаем
                     %26 - берем по модулю размера алфавита 
@@ -52,8 +58,12 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
 >>>>>>> 374337a... Реализована шифровка и расшифровка
 =======
             else:
+<<<<<<< HEAD
                ciphertext += chr(ord('A') + (ord(c) - ord('A') + shift) % 26)
 >>>>>>> a757f48... Реализована функция is_prime(n)
+=======
+                ciphertext += chr(ord("A") + (ord(c) - ord("A") + shift) % 26)
+>>>>>>> bd5007c... Исправлено форматирование
         else:
             ciphertext += c
     return ciphertext
@@ -99,12 +109,16 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
 =======
     plaintext = ""
     for c in ciphertext:
-        if c.isalpha():            
-            if 'a' <= c <= 'z':
-                plaintext += chr(ord('a') + (ord(c) - ord('a') + 26 - shift) % 26)
+        if c.isalpha():
+            if "a" <= c <= "z":
+                plaintext += chr(ord("a") + (ord(c) - ord("a") + 26 - shift) % 26)
             else:
+<<<<<<< HEAD
                 plaintext += chr(ord('A') + (ord(c) - ord('A') + 26 - shift) % 26)
 >>>>>>> a757f48... Реализована функция is_prime(n)
+=======
+                plaintext += chr(ord("A") + (ord(c) - ord("A") + 26 - shift) % 26)
+>>>>>>> bd5007c... Исправлено форматирование
         else:
             plaintext += c
     return plaintext
