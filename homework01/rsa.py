@@ -28,10 +28,13 @@ def is_prime(n: int) -> bool:
 
     return True
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     pass
 >>>>>>> a757f48... Реализована функция is_prime(n)
 
+=======
+>>>>>>> 147598e... Доделан RSA
 
 def gcd(a: int, b: int) -> int:
     """
@@ -50,11 +53,14 @@ def gcd(a: int, b: int) -> int:
 
     return gcd(b, a % b)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
     pass
 >>>>>>> 495c490... Реализована функция поиска НОД
 
+=======
+>>>>>>> 147598e... Доделан RSA
 
 def multiplicative_inverse(e: int, phi: int) -> int:
     """
@@ -64,18 +70,30 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     >>> multiplicative_inverse(7, 40)
     23
     """
+<<<<<<< HEAD
 
+=======
+>>>>>>> 147598e... Доделан RSA
     def eea(e, b):
         if e % b == 0:
             return b, 0, 1
         else:
             if b > e:
+<<<<<<< HEAD
                 e, b = b, e
             g, x, y = eea(b, e % b)
             return g, y, x - (e // b) * y
 
     g, x, y = eea(e, phi)
     return y % phi
+=======
+                e, b =b, e
+            g, x, y =eea(b, e % b)
+            return g, y, x - (e // b) * y
+    g, x, y = eea(e,phi)
+    return y % phi
+
+>>>>>>> 147598e... Доделан RSA
 
 
 def generate_keypair(
@@ -87,10 +105,17 @@ def generate_keypair(
         raise ValueError("p and q cannot be equal")
 
     # n = pq
+<<<<<<< HEAD
     n = p * q
 
     # phi = (p-1)(q-1)
     phi = (p - 1) * (q - 1)
+=======
+    n = p*q
+
+    # phi = (p-1)(q-1)
+    phi = (p-1)*(q-1)
+>>>>>>> 147598e... Доделан RSA
 
     # Choose an integer e such that e and phi(n) are coprime
     e = random.randrange(1, phi)
