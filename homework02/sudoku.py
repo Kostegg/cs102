@@ -1,5 +1,5 @@
 from typing import Tuple, List, Set, Optional
-from random import randint
+from random import randint, sample, shuffle
 
 
 def read_sudoku(filename: str) -> List[List[str]]:
@@ -83,7 +83,7 @@ def find_empty_positions(grid: List[List[str]]) -> Optional[Tuple[int, int]]:
     (2, 0)
     """
     i = 0
-    while grid[i // len(grid[0])][i % len(grid[0])] != '.' and i < len(grid) * len(grid[0]):
+    while i < len(grid) * len(grid[0]) and grid[i // len(grid[0])][i % len(grid[0])] != '.':
         i += 1
 
     if i == len(grid[0]) * len(grid):
@@ -103,15 +103,7 @@ def find_possible_values(grid: List[List[str]], pos: Tuple[int, int]) -> Set[str
     True
     """
 
-    result = {str(x) for x in range(1, 10)} 
-
-    for x in get_row(grid, pos):
-        result.discard(x)
-    for x in get_col(grid, pos):
-        result.discard(x)
-    for x in get_block(grid, pos):
-        result.discard(x)
-
+    result = {str(x) for x in range(1, 10)}.difference(set(get_row(grid, pos)), set(get_col(grid, pos)), set(get_block(grid, pos)))
     return result
 
 
@@ -135,12 +127,15 @@ def solve(grid: List[List[str]]) -> Optional[List[List[str]]]:
             return grid
         return None
 
-    result: Optional[List[List[str]]]
-    for option in find_possible_values(grid, pos):
+    result: Optional[List[List[str]]] = None
+    options = [x for x in find_possible_values(grid, pos)]
+    shuffle(options)
+    for option in options:
         grid[pos[0]][pos[1]] = option
         result = solve(grid)
         if result != None:
             return result
+        grid[pos[0]][pos[1]] = '.'
     
     return None
         
@@ -189,25 +184,24 @@ def generate_sudoku(N: int) -> List[List[str]]:
 
     grid = [['.' for y in range(9)] for x in range(9)]
 
-    if N > 81: N = 81
+    grid = solve(grid)
+    if grid == None:
+        print("SASAMBA")
+
+    if N > 81:
+        N = 81
+    N = 81 - N
 
     for i in range(N):
         x, y = randint(0, 8), randint(0, 8)
-        while (grid[x][y] != '.'):
+        while (grid[x][y] == '.'):
             x, y = randint(0, 8), randint(0, 8)
-        options = find_possible_values(grid, (x, y))
-        if len(options) == 0: 
-            print("My poely govna lol")
-            print(*grid, sep='\n')
-            cbttest = solve(grid)
-            if cbttest == None:
-                print("Lol net")
-            else:
-                print(*cbttest, sep='\n')
-            return [[]]
+        grid[x][y] = '.'
+
+        """options = find_possible_values(grid, (x, y))
         for j in range(randint(0, len(options) - 1)):
             options.pop()
-        grid[x][y] = options.pop()
+        grid[x][y] = options.pop()"""
     
     return grid
 
