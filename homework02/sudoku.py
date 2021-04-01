@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import pathlib
 import typing as tp
 
@@ -14,10 +15,19 @@ def read_sudoku(path: tp.Union[str, pathlib.Path]) -> tp.List[tp.List[str]]:
 
 def create_grid(puzzle: str) -> tp.List[tp.List[str]]:
     digits = [c for c in puzzle if c in "123456789."]
+=======
+from typing import Tuple, List, Set, Optional
+
+
+def read_sudoku(filename: str) -> List[List[str]]:
+    """ Прочитать Судоку из указанного файла """
+    digits = [c for c in open(filename).read() if c in '123456789.']
+>>>>>>> daaaf63... Initial commit
     grid = group(digits, 9)
     return grid
 
 
+<<<<<<< HEAD
 def display(grid: tp.List[tp.List[str]]) -> None:
     """Вывод Судоку """
     width = 2
@@ -29,11 +39,24 @@ def display(grid: tp.List[tp.List[str]]) -> None:
             )
         )
         if str(row) in "25":
+=======
+def display(grid: List[List[str]]) -> None:
+    """Вывод Судоку """
+    width = 2
+    line = '+'.join(['-' * (width * 3)] * 3)
+    for row in range(9):
+        print(''.join(grid[row][col].center(width) + ('|' if str(col) in '25' else '') for col in range(9)))
+        if str(row) in '25':
+>>>>>>> daaaf63... Initial commit
             print(line)
     print()
 
 
+<<<<<<< HEAD
 def group(values: tp.List[T], n: int) -> tp.List[tp.List[T]]:
+=======
+def group(values: List[str], n: int) -> List[List[str]]:
+>>>>>>> daaaf63... Initial commit
     """
     Сгруппировать значения values в список, состоящий из списков по n элементов
 
@@ -45,8 +68,13 @@ def group(values: tp.List[T], n: int) -> tp.List[tp.List[T]]:
     pass
 
 
+<<<<<<< HEAD
 def get_row(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str]:
     """Возвращает все значения для номера строки, указанной в pos
+=======
+def get_row(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
+    """ Возвращает все значения для номера строки, указанной в pos
+>>>>>>> daaaf63... Initial commit
 
     >>> get_row([['1', '2', '.'], ['4', '5', '6'], ['7', '8', '9']], (0, 0))
     ['1', '2', '.']
@@ -58,8 +86,13 @@ def get_row(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str
     pass
 
 
+<<<<<<< HEAD
 def get_col(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str]:
     """Возвращает все значения для номера столбца, указанного в pos
+=======
+def get_col(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
+    """ Возвращает все значения для номера столбца, указанного в pos
+>>>>>>> daaaf63... Initial commit
 
     >>> get_col([['1', '2', '.'], ['4', '5', '6'], ['7', '8', '9']], (0, 0))
     ['1', '4', '7']
@@ -71,8 +104,13 @@ def get_col(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str
     pass
 
 
+<<<<<<< HEAD
 def get_block(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str]:
     """Возвращает все значения из квадрата, в который попадает позиция pos
+=======
+def get_block(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
+    """ Возвращает все значения из квадрата, в который попадает позиция pos
+>>>>>>> daaaf63... Initial commit
 
     >>> grid = read_sudoku('puzzle1.txt')
     >>> get_block(grid, (0, 1))
@@ -85,8 +123,13 @@ def get_block(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[s
     pass
 
 
+<<<<<<< HEAD
 def find_empty_positions(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.Tuple[int, int]]:
     """Найти первую свободную позицию в пазле
+=======
+def find_empty_positions(grid: List[List[str]]) -> Optional[Tuple[int, int]]:
+    """ Найти первую свободную позицию в пазле
+>>>>>>> daaaf63... Initial commit
 
     >>> find_empty_positions([['1', '2', '.'], ['4', '5', '6'], ['7', '8', '9']])
     (0, 2)
@@ -98,8 +141,13 @@ def find_empty_positions(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.Tuple[in
     pass
 
 
+<<<<<<< HEAD
 def find_possible_values(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.Set[str]:
     """Вернуть множество возможных значения для указанной позиции
+=======
+def find_possible_values(grid: List[List[str]], pos: Tuple[int, int]) -> Set[str]:
+    """ Вернуть множество возможных значения для указанной позиции
+>>>>>>> daaaf63... Initial commit
 
     >>> grid = read_sudoku('puzzle1.txt')
     >>> values = find_possible_values(grid, (0,2))
@@ -112,7 +160,11 @@ def find_possible_values(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -
     pass
 
 
+<<<<<<< HEAD
 def solve(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.List[tp.List[str]]]:
+=======
+def solve(grid: List[List[str]]) -> Optional[List[List[str]]]:
+>>>>>>> daaaf63... Initial commit
     """ Решение пазла, заданного в grid """
     """ Как решать Судоку?
         1. Найти свободную позицию
@@ -128,14 +180,23 @@ def solve(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.List[tp.List[str]]]:
     pass
 
 
+<<<<<<< HEAD
 def check_solution(solution: tp.List[tp.List[str]]) -> bool:
+=======
+def check_solution(solution: List[List[str]]) -> bool:
+>>>>>>> daaaf63... Initial commit
     """ Если решение solution верно, то вернуть True, в противном случае False """
     # TODO: Add doctests with bad puzzles
     pass
 
 
+<<<<<<< HEAD
 def generate_sudoku(N: int) -> tp.List[tp.List[str]]:
     """Генерация судоку заполненного на N элементов
+=======
+def generate_sudoku(N: int) -> List[List[str]]:
+    """ Генерация судоку заполненного на N элементов
+>>>>>>> daaaf63... Initial commit
 
     >>> grid = generate_sudoku(40)
     >>> sum(1 for row in grid for e in row if e == '.')
@@ -159,8 +220,13 @@ def generate_sudoku(N: int) -> tp.List[tp.List[str]]:
     pass
 
 
+<<<<<<< HEAD
 if __name__ == "__main__":
     for fname in ["puzzle1.txt", "puzzle2.txt", "puzzle3.txt"]:
+=======
+if __name__ == '__main__':
+    for fname in ['puzzle1.txt', 'puzzle2.txt', 'puzzle3.txt']:
+>>>>>>> daaaf63... Initial commit
         grid = read_sudoku(fname)
         display(grid)
         solution = solve(grid)

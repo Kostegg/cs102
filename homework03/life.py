@@ -1,5 +1,6 @@
 import pathlib
 import random
+<<<<<<< HEAD
 import typing as tp
 
 import pygame
@@ -16,6 +17,24 @@ class GameOfLife:
         size: tp.Tuple[int, int],
         randomize: bool = True,
         max_generations: tp.Optional[float] = float("inf"),
+=======
+
+from typing import List, Optional, Tuple
+
+
+Cell = Tuple[int, int]
+Cells = List[int]
+Grid = List[Cells]
+
+
+class GameOfLife:
+    
+    def __init__(
+        self,
+        size: Tuple[int, int],
+        randomize: bool=True,
+        max_generations: Optional[float]=float('inf')
+>>>>>>> daaaf63... Initial commit
     ) -> None:
         # Размер клеточного поля
         self.rows, self.cols = size
@@ -28,7 +47,11 @@ class GameOfLife:
         # Текущее число поколений
         self.generations = 1
 
+<<<<<<< HEAD
     def create_grid(self, randomize: bool = False) -> Grid:
+=======
+    def create_grid(self, randomize: bool=False) -> Grid:
+>>>>>>> daaaf63... Initial commit
         # Copy from previous assignment
         pass
 
@@ -61,14 +84,26 @@ class GameOfLife:
         pass
 
     @staticmethod
+<<<<<<< HEAD
     def from_file(filename: pathlib.Path) -> "GameOfLife":
+=======
+    def from_file(filename: pathlib.Path) -> 'GameOfLife':
+>>>>>>> daaaf63... Initial commit
         """
         Прочитать состояние клеток из указанного файла.
         """
         pass
 
+<<<<<<< HEAD
     def save(self, filename: pathlib.Path) -> None:
         """
         Сохранить текущее состояние клеток в указанный файл.
         """
         pass
+=======
+    def save(filename: pathlib.Path) -> None:
+        """
+        Сохранить текущее состояние клеток в указанный файл.
+        """
+        pass
+>>>>>>> daaaf63... Initial commit
